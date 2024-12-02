@@ -1,0 +1,25 @@
+<svg width="100" height="100" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+<circle cx="50" cy="50" r="42" fill="#F4F4F4" fill-opacity="0.5"/>
+<circle cx="50" cy="50" r="33" fill="#F4F4F4"/>
+<circle opacity="0.2" cx="16.6953" cy="72.5583" r="7.5" transform="rotate(165 16.6953 72.5583)" fill="#C0CDDC"/>
+<circle cx="57.0678" cy="86.0695" r="2" transform="rotate(165 57.0678 86.0695)" fill="#C0CDDC"/>
+<circle opacity="0.3" cx="86.5331" cy="27.9634" r="6.5" transform="rotate(165 86.5331 27.9634)" fill="#C0CDDC"/>
+<circle opacity="0.8" cx="5.1805" cy="58.5617" r="2.5" transform="rotate(165 5.1805 58.5617)" fill="white" stroke="#C0CDDC"/>
+<circle opacity="0.8" cx="69.8989" cy="14.899" r="3.5" transform="rotate(165 69.8989 14.899)" fill="white" stroke="#C0CDDC"/>
+<rect x="19" y="26" width="62" height="48" rx="2" fill="white" stroke="#C0CDDC" stroke-width="2"/>
+<path d="M19 71H80V73H19V71Z" fill="#C0CDDC" fill-opacity="0.3"/>
+<rect x="36" y="35" width="35" height="1" fill="#C0CDDC"/>
+<rect x="36" y="38" width="19" height="1" fill="#C0CDDC"/>
+<circle cx="28.5" cy="50.5" r="4" stroke="#C0CDDC"/>
+<path d="M27 50L28.5 51.5L31 49" stroke="#C0CDDC"/>
+<rect x="36" y="48" width="35" height="1" fill="#C0CDDC"/>
+<rect x="36" y="51" width="27" height="1" fill="#C0CDDC"/>
+<path d="M32 68L31 67L30 68V64H32V68Z" fill="#C0CDDC"/>
+<path d="M31 66C32.1046 66 33 65.1046 33 64C33 62.8954 32.1046 62 31 62C29.8954 62 29 62.8954 29 64C29 65.1046 29.8954 66 31 66Z" fill="#C0CDDC"/>
+<path d="M25 63.5C25.0045 63.3323 25.0212 63.1652 25.05 63H24.05C24.0239 63.1656 24.0072 63.3325 24 63.5C24 64.6935 24.4741 65.8381 25.318 66.682C26.1619 67.5259 27.3065 68 28.5 68C28.6675 67.9928 28.8344 67.9761 29 67.95V66.95C28.8348 66.9788 28.6677 66.9955 28.5 67C27.5717 67 26.6815 66.6313 26.0251 65.9749C25.3687 65.3185 25 64.4283 25 63.5Z" fill="#C0CDDC"/>
+<path d="M28.5 59C27.573 59.0032 26.6696 59.2933 25.9141 59.8305C25.1585 60.3676 24.5877 61.1255 24.28 62H25.35C25.5866 61.4967 25.9404 61.0575 26.3818 60.7191C26.8231 60.3806 27.3391 60.1529 27.8865 60.055C28.434 59.9571 28.9969 59.9918 29.5282 60.1562C30.0595 60.3206 30.5436 60.61 30.94 61H32.24C31.8297 60.3843 31.2735 59.8795 30.6211 59.5306C29.9686 59.1817 29.24 58.9994 28.5 59Z" fill="#C0CDDC"/>
+<rect x="36" y="61" width="35" height="1" fill="#C0CDDC"/>
+<rect x="36" y="64" width="9" height="1" fill="#C0CDDC"/>
+<path d="M32.5 37.5C32.5 39.7091 30.7091 41.5 28.5 41.5C26.2909 41.5 24.5 39.7091 24.5 37.5C24.5 35.2909 26.2909 33.5 28.5 33.5C30.7091 33.5 32.5 35.2909 32.5 37.5Z" fill="white" fill-opacity="0.8" stroke="#C0CDDC" stroke-miterlimit="16" stroke-linecap="round"/>
+<path d="M28.5 35.5L28.5 37.5004L30.5 37.5004" stroke="#C0CDDC" stroke-linecap="round"/>
+</svg>

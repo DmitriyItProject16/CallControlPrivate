@@ -1,0 +1,18 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="Createcopyofversion_16" clip-path="url(#clip0_7030_923)">
+<g id="old">
+<g id="new">
+<rect id="Rectangle" x="4" y="4" width="8" height="8" fill="white"/>
+<path id="Union" d="M1 1V7H4V4H7V1H1Z" fill="white"/>
+<path id="Subtract" fill-rule="evenodd" clip-rule="evenodd" d="M4 4H12V9H13V4C13 3.44772 12.5523 3 12 3H4C3.44772 3 3 3.44772 3 4V12C3 12.5523 3.44772 13 4 13H9V12H4V4Z" fill="#798288"/>
+<path id="Subtract_2" fill-rule="evenodd" clip-rule="evenodd" d="M1 1H7V2H8V1C8 0.447715 7.55228 0 7 0H1C0.447715 0 0 0.447715 0 1V7C0 7.55228 0.447715 8 1 8H2V7H1V1Z" fill="#798288"/>
+</g>
+<path id="Union_2" fill-rule="evenodd" clip-rule="evenodd" d="M14 10H12V12H10V14H12V16H14V14H16V12H14V10Z" fill="#4D7EB3"/>
+</g>
+</g>
+<defs>
+<clipPath id="clip0_7030_923">
+<rect width="16" height="16" fill="white"/>
+</clipPath>
+</defs>
+</svg>

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<svg id="Layer_1" data-name="Layer 1" viewBox="0 0 16 16" xmlns="http://www.w3.org/2000/svg">
+  <title>sort_s_16</title>
+  <rect x="12" width="1" height="14" style="fill: rgb(9, 99, 137);"/>
+  <polygon points="12.5 16 9 12 16 12 12.5 16" style="fill: rgb(9, 99, 137);"/>
+  <path d="M 1.2 6 L 5.581 6 L 5.581 7 L 0 7 L 0 6 L 4.472 1 L 0.365 1 L 0.365 0 L 5.672 0 L 5.672 1 Z" style="fill: rgb(214, 86, 51);"/>
+  <path d="M 6.854 16 L 5.854 16 L 5.038 13.757 L 1.773 13.757 L 1.004 16 L 0 16 L 2.954 8 L 3.889 8 Z M 4.743 12.914 L 3.534 9.506 C 3.48 9.331 3.441 9.152 3.416 8.971 L 3.395 8.971 C 3.369 9.153 3.328 9.332 3.271 9.506 L 2.073 12.914 Z" style="fill: rgb(141, 149, 153);"/>
+</svg>

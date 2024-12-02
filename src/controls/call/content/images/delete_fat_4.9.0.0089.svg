@@ -1,0 +1,9 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="#979797" stroke="#979797" xmlns="http://www.w3.org/2000/svg">
+    <g id="delete">
+        <path d="M4 3H13V13C13 13.5523 12.5523 14 12 14H5C4.44772 14 4 13.5523 4 13V3Z" fill="none" stroke-width="2"/>
+        <path d="M6 1C6 0.447715 6.44772 0 7 0H10C10.5523 0 11 0.447715 11 1V2H6V1Z" stroke="none"/>
+        <path d="M2 3C2 2.44772 2.44772 2 3 2H14C14.5523 2 15 2.44772 15 3C15 3.55228 14.5523 4 14 4H3C2.44772 4 2 3.55228 2 3Z" stroke="none"/>
+        <rect x="6" y="5" width="2" height="7" stroke="none"/>
+        <rect x="9" y="5" width="2" height="7" stroke="none"/>
+    </g>
+</svg>

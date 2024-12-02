@@ -1,0 +1,106 @@
+<!doctype html><html><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"/><meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=yes"/><link href="images/favicon_4.9.0.0089.ico" rel="shortcut icon" type="image/vnd.microsoft.icon"/><script>(function () {
+      var pathname = location.pathname;
+      if (pathname.substr(-1) == '/' && pathname.length > 1) {
+        // Редиректим на адрес без '/' в конце, иначе сломаются ссылки на ресурсы.
+        window.location.replace(pathname.slice(0, -1));
+      }
+
+      pathname += '/';
+      var ua = navigator.userAgent;
+      window.documentProcessorCssUrl = pathname + "word-document-processor_4.9.0.0089_59b60cf7.css";
+      window.textProcessorCssUrl = pathname + "text-document-processor_4.9.0.0089_a7f4f763.css";
+      window.defaultThemeCssUrl = pathname + "theme-default_4.9.0.0089_5f2ca95b.css";
+      window.nightThemeCssUrl = pathname + "theme-night_4.9.0.0089_bb73de13.css";
+      window.scrollbarCssUrl = pathname + "scrollbar_4.9.0.0089_b05c8900.css";
+
+      document.write('<link href="theme-default_4.9.0.0089_5f2ca95b.css" rel="stylesheet">');
+      document.write('<link href="theme-night_4.9.0.0089_bb73de13.css" rel="stylesheet">');
+      document.write('<link href="scrollbar_4.9.0.0089_b05c8900.css" rel="stylesheet">');
+      document.write('<link href="appStyles_4.9.0.0089_6dc759f0.css" rel="stylesheet">');
+      window.loadSettings = pathname + "load-settings_4.9.0.0089_40b9d67b.js";
+    })();
+
+    document.onkeydown = function () {
+      if (window.event.keyCode == '13') {
+        document.getElementById('login-button').click();
+      }
+    }
+
+    window.onload = function () {
+      document.getElementById('login-user-id').focus();
+    }</script></head><body><div id="root"><div class="background-img" style="background-image: url(&quot;./images/welcome-page-background&quot;);"><div><div class="login"><form class="login__form" id="login-form"><div class="languages"><div class="languages__select" id="languages_select"><img class="languages__icon" src="images/language_4.9.0.0089.svg" alt="Language:"><div class="link">English (United States)</div></div></div><img class="logo login__logo" src="images/logo_4.9.0.0089.svg" alt=""><div class="login__editors" id="login_editors"><div class="login__editor"><div class="string-editor string-editor_bordered" style="width: 100%;"><input class="string-editor__input" id="login-user-id" spellcheck="false" placeholder="Name" value=""></div></div><div class="login__editor"><div class="string-editor string-editor_bordered" style="width: 100%;"><input class="string-editor__input" id="login-password-id" type="password" spellcheck="false" placeholder="Password" value=""></div></div><div class="login__hint-error" style="display: none"><p>Invalid username or password.</p></div></div><div class="login__submit-button-cover"><button type="button" id="login-button" class="login__submit-button" onclick="signIn()"><div tabindex="-1" id="loggin-button-id" class="button login__submit-button-content"><div class="button__content button__content_has-text"><span class="button__text">Sign in</span></div></div></button></div></form></div></div></div></div><script>const invalidCredentialText = "Invalid username or password.";
+    const buttonHoveredClass = "button_hovered";
+    const loginSubmitButtonContentHoveredClass = "login__submit-button-content_hovered";
+
+    function signIn() {
+      var login = document.getElementById('login-user-id').value;
+      var password = document.getElementById('login-password-id').value;
+      if (login && password) {
+        changeLogginButtonStyle(true);
+        var clientName = location.pathname.split('/')[1];
+        var http = new XMLHttpRequest();
+        var url = '/' + clientName + '/api/login.logon-by-credentials';
+        var params = '{"UserUtcOffset":4,"CultureInfoName":"ru-RU","Credentials":{"UserName":"' + login + '","Password":"' + password + '"}}';
+        http.open('POST', url, true);
+        http.setRequestHeader('Content-type', 'application/json');
+        http.onreadystatechange = function () {
+          if (http.readyState == 4) {
+            if (http.status == 200) {
+              window.localStorage.setItem('ClientId', JSON.parse(http.responseText));
+              window.location.href = '/' + clientName + '/';
+            }
+            else {
+              changeLogginButtonStyle(false);
+              if (http.status == 403) {
+                setErrorHintText(invalidCredentialText);
+              }
+              else {
+                setErrorHintText("Internal server error.");
+              }
+            }
+          }
+        }
+        http.send(params);
+      }
+      else {
+        setErrorHintText(invalidCredentialText);
+      }
+    }
+
+    function changeLogginButtonStyle(signingIn) {
+      var logginButton = document.getElementById('login-button');
+      var logginButtonDiv = document.getElementById('loggin-button-id');
+      var logginButtonText = document.getElementsByClassName('button__text')[0];
+      if (logginButton && logginButtonDiv && logginButtonText) {
+        if (signingIn) {
+          logginButton.disabled = true;
+          logginButtonText.innerHTML = "Signing in…";
+          logginButtonDiv.classList.add(buttonHoveredClass, loginSubmitButtonContentHoveredClass);
+        }
+        else {
+          logginButton.disabled = false;
+          logginButtonText.innerHTML = "Sign in";
+          logginButtonDiv.classList.remove(buttonHoveredClass, loginSubmitButtonContentHoveredClass);
+        }
+      }
+    }
+
+    function setErrorHintText(errorText) {
+      var errorHint = document.getElementsByClassName('login__hint-error')[0];
+      if (errorHint) {
+        var errorHintText = errorHint.getElementsByTagName('p')[0];
+        if (errorHintText) {
+          errorHintText.innerHTML = errorText;
+        }
+        var actualDisplay = getComputedStyle(errorHint).display;
+        if (actualDisplay == 'none') {
+          errorHint.style.display = 'block';
+        }
+      }
+
+      var stringEditors = document.getElementsByClassName('string-editor');
+      for (var i = 0; i < stringEditors.length; i++) {
+        var element = stringEditors[i];
+        element.classList.add("string-editor_invalid");
+      }
+    }</script></body></html>

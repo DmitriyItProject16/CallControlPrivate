@@ -1,0 +1,265 @@
+<!doctype html><html><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"/><link href="images/favicon_4.9.0.0089.ico" rel="shortcut icon" type="image/vnd.microsoft.icon"/><style>html {
+          font-family: Segoe UI, -apple-system, BlinkMacSystemFont, Roboto, Helvetica Neue, Helvetica, Ubuntu, Arial, sans-serif;
+          font-size: 16px;
+        }
+
+        body{
+          text-align: center;
+        }
+
+        .browser-icon {
+          border: 0;
+        }
+
+        .browser-title {
+          padding-top: 15px;
+          text-decoration: none;
+        }
+
+        .not-supported-browser-message__rx-logo {
+          width: 260px;
+          margin: auto;
+        }
+
+        .not-supported-browser-message__supported-browsers {
+          text-align: center;
+        }
+
+        .not-supported-browser-message__supported-browsers__message {
+          padding-bottom: 55px;
+          padding-top: 15px;
+        }
+
+        .not-supported-browser-message__supported-browsers__browser-icons a:link {
+          text-decoration: none;
+          color: #4674a2;
+        }
+
+        .not-supported-browser-message__supported-browsers__browser-icons__item {
+          vertical-align: baseline;
+          width: 250px;
+          text-align: center;
+        }
+
+        .not-supported-browser-message {
+          width: 500px;
+          margin: 0 auto;
+          padding-top: 100px;
+          text-align: center;
+        }</style></head><body><div class="not-supported-browser-message"><div class="not-supported-browser-message__rx-logo"><img src="images/logo_4.9.0.0089.png" alt="Not supported"/></div><div class="not-supported-browser-message__supported-browsers"><div class="not-supported-browser-message__supported-browsers__message"><div id="message"></div></div><div class="not-supported-browser-message__supported-browsers__browser-icons"><table><tr id="browsers"><th></th></tr></table></div></div></div><script src="json3.min.js"></script><script>(function(){
+        var defaultLanguage = 'en';
+        var vendorLanguages = {
+          'en': 'en',
+          'en-us': 'en',
+          'en-gb': 'en',
+          'ru': 'ru',
+          'ru-ru': 'ru'
+        };
+
+        window.initLocalization = function(callback){
+          var language = _detectLanguage();
+          var isLanguageDefault = _isDefaultLanguage(language);
+          var languageCount = isLanguageDefault? 1 : 2;
+          var loaded = 0;
+
+          var currentLocalization, defaultLocalization;
+
+          _loadLocalization(language, function(localization){
+            if(localization){
+                currentLocalization = localization;
+                if(isLanguageDefault)
+                  defaultLocalization = localization;
+                _onLoaded();
+            }
+            else{
+              //если не получилось загрузить, попробуем отрезать часть названия, например de-de правратить в de
+              language = _cutLanguageName(language);
+              _loadLocalization(language, function(localization){
+                currentLocalization = localization;
+                if(isLanguageDefault)
+                  defaultLocalization = localization;
+                _onLoaded();
+              });
+            }
+          });
+
+          if(!isLanguageDefault){
+            _loadLocalization(defaultLanguage, function(localization){
+              defaultLocalization = localization;
+              _onLoaded();
+            });
+          }
+
+          function _onLoaded(){
+            if(++loaded == languageCount)
+              callback(new localizationClass(currentLocalization, defaultLocalization));
+          }
+        }
+
+        function _loadLocalization(language, callback){
+
+          if (!language)
+            return undefined;
+
+          var filePath = _getLocalizationFilePath(language);
+          _loadFile(filePath, function(text){
+            if(text)
+              text = JSON.parse(text);
+            callback(text);
+          });
+        }
+
+        function _cutLanguageName(language){
+
+          if (!language)
+            return undefined;
+
+          var index = language.indexOf('-');
+          if(index < 0)
+            return undefined;
+
+          return language.substr(0, index);
+        }
+
+        function _detectLanguage(){
+          var result;
+
+          if (navigator)
+          {
+            if (navigator.userLanguage)// for ie
+              result = navigator.userLanguage.toLowerCase();
+
+            else if (navigator.language)
+              result = navigator.language.toLowerCase();
+          }
+
+          return result;
+        }
+
+        function _isDefaultLanguage(language){
+          return language == defaultLanguage
+            || vendorLanguages[language] == defaultLanguage
+            || _cutLanguageName(language) == defaultLanguage;
+        }
+
+        function _getLocalizationFilePath(userLanguage){
+
+          var languageCode = userLanguage;
+          if (vendorLanguages[languageCode] != null)
+            return 'locales/'+ vendorLanguages[languageCode] +'.json';
+          else
+            return 'api/locales/' + languageCode + '.json';
+        }
+
+        function _loadFile(filePath, callback){
+
+          var request;
+          if (window.XMLHttpRequest) {
+              request = new XMLHttpRequest();
+          } else {
+              request = new ActiveXObject("Microsoft.XMLHTTP");
+          }
+
+          request.open('GET', filePath);
+          request.send();
+
+          request.onreadystatechange = function(){
+            if (request.readyState != 4) return;
+
+            var text = undefined;
+            if (request.status == 200) {
+              text = request.responseText;
+            }
+            callback(text);
+          }
+        }
+
+        var localizationClass = function(currentLocalization, defaultLocalization){
+          this.getLocalizedString = function(key){
+            if(currentLocalization && currentLocalization.Common
+              && currentLocalization.Common[key] )
+              return currentLocalization.Common[key];
+
+            if(defaultLocalization && defaultLocalization.Common
+              && defaultLocalization.Common[key] )
+              return defaultLocalization.Common[key];
+
+            return key;
+          }
+        }
+      })();
+
+      (function() {
+        var supportingBrowsers = [
+          {
+            "name": 'chrome',
+            "title": 'Chrome',
+            "link": 'https://www.google.com/chrome/browser/desktop/index.html',
+            "os": ['windows', 'macos', 'unix', 'linux', 'unknown'],
+            'icon': "images/browsers/Chrome_4.9.0.0089.png"
+          },
+          {
+            'name': 'ff',
+            'title': 'Firefox',
+            'link': 'https://www.mozilla.org/firefox/',
+            'os': ['windows', 'macos', 'unix', 'linux', 'unknown'],
+            'icon': "images/browsers/Firefox_4.9.0.0089.png"
+          },
+          {
+            'name': 'safari',
+            'title': 'Safari',
+            'link': 'https://www.apple.com/safari/',
+            'os': ['macos', 'unknown'],
+            'icon': "images/browsers/Safari_4.9.0.0089.png"
+          }
+        ];
+
+        var currentOS = _getCurrentOS();
+
+        var browsersContainer = document.getElementById('browsers');
+        for (var i = 0; i < supportingBrowsers.length; i++) {
+          for (var j = 0; j < supportingBrowsers[i].os.length; j++) {
+            if (supportingBrowsers[i].os[j] === currentOS) {
+              var b = _createBrowserItem(supportingBrowsers[i]);
+              browsersContainer.appendChild(b);
+              break;
+            }
+          }
+        }
+
+        initLocalization(function(localization){
+          document.getElementById('message').innerHTML = localization.getLocalizedString('CurrentBrowserNotSupported');
+        });
+
+        function _getCurrentOS() {
+          var osName='unknown';
+          if (navigator.appVersion.indexOf('Win')!=-1) osName='windows';
+          if (navigator.appVersion.indexOf('Mac')!=-1) osName='macos';
+          if (navigator.appVersion.indexOf('X11')!=-1) osName='unix';
+          if (navigator.appVersion.indexOf('Linux')!=-1) osName='linux';
+
+          return osName;
+        }
+
+        function _createBrowserItem(browserInfo) {
+          var icon = document.createElement('img');
+          icon.className = 'browser-icon';
+          icon.setAttribute('src', browserInfo.icon);
+
+          var title = document.createElement('div');
+          title.className = 'browser-title';
+          title.innerHTML = browserInfo.title;
+
+          var anchor = document.createElement('a');
+          anchor.setAttribute('href', browserInfo.link);
+          anchor.setAttribute('target', '_blank');
+          anchor.appendChild(icon);
+          anchor.appendChild(title);
+
+          var container = document.createElement('td');
+          container.className = 'not-supported-browser-message__supported-browsers__browser-icons__item';
+          container.appendChild(anchor);
+
+          return container;
+        }
+      })();</script></body></html>

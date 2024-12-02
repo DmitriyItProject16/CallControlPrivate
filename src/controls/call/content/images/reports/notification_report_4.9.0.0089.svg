@@ -1,0 +1,6 @@
+<svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<g id="notification_report">
+		<path d="M9.75 13.25V6.75H10.25V13.25H9.75ZM13.75 13.25V9.75H14.25V13.25H13.75ZM5.75 11.75H6.25V13.25H5.75V11.75Z" stroke-width="1.5"/>
+		<path d="M2 3H18C18.5523 3 19 3.44772 19 4V16C19 16.5523 18.5523 17 18 17H2C1.44772 17 1 16.5523 1 16V4C1 3.44772 1.44772 3 2 3Z" fill="none" stroke-width="2"/>
+	</g>
+</svg>

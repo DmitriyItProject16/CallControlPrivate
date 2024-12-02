@@ -1,0 +1,14 @@
+<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<g clip-path="url(#openInNewTab)">
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M11 14L11 5L6.5 5L2 5L2 14L6.5 14L11 14Z" fill="white"/>
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M15 11L15 1L10 1L5 1L5 11L10 11L15 11Z" fill="white"/>
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M11 13L11 14L6.5 14L2 14L2 5L3 5L3 4L2 4C1.44772 4 1 4.44772 1 5L1 14C1 14.5523 1.44772 15 2 15L6.5 15L11 15C11.5523 15 12 14.5523 12 14L12 13L11 13Z" fill="#798288"/>
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M15 11L15 1L10 1L5 1L5 8.30769L4 8.30769L4 1C4 0.447714 4.44771 5.04966e-07 5 4.80825e-07L10 1.21594e-06L15 1.95106e-06C15.5523 1.92692e-06 16 0.447718 16 1L16 11C16 11.5523 15.5523 12 15 12L10 12L7.69231 12L7.69231 11L10 11L15 11Z" fill="#798288"/>
+		<path fill-rule="evenodd" clip-rule="evenodd" d="M11.996 4.74998L11.996 4L11.246 4L6.99726 4L6.99726 5.49996L9.43573 5.49996L3.99998 10.9354L5.06061 11.9961L10.4959 6.56108L10.4959 8.99837L11.996 8.99837L11.996 4.74998Z" fill="#407FB9"/>
+	</g>
+	<defs>
+		<clipPath id="openInNewTab">
+			<rect width="16" height="16" fill="white" transform="matrix(-4.37114e-08 -1 -1 4.37114e-08 16 16)"/>
+		</clipPath>
+	</defs>
+</svg>
